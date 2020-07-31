@@ -1,0 +1,40 @@
+{
+  "name": "jpc-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@riophae/vue-treeselect": "^0.0.38",
+    "axios": "^0.19.0",
+    "better-scroll": "^1.15.2",
+    "core-js": "^2.6.5",
+    "dotenv-safe": "^8.2.0",
+    "echarts": "^4.2.1",
+    "element-ui": "2.4.6",
+    "font-awesome": "^4.7.0",
+    "mockjs": "^1.1.0",
+    "particles.js": "^2.0.0",
+    "vue": "^2.6.10",
+    "vue-echarts": "^4.0.3",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
