@@ -42,28 +42,6 @@ export const adminModule = {
   },
   actions: {
     login({dispatch, commit}, usermsg) {
-      // return axios({
-      //   method: 'post',
-      //   url: '/service/public/login',
-      //   data: usermsg
-      // }).then((data) => {
-      //   alert(data)
-      //   let token = data.token
-      //   let menus = data['permissionList'] || []
-      //   commit('SET_USER', {
-      //     name: data.userName,
-      //     id: data.userId
-      //   })
-      //   commit('SET_TOKEN', token)
-      //   commit('SET_MENUS', menus)
-      //
-      //   window.localStorage.setItem('token', JSON.stringify(token))
-      //   window.localStorage.setItem('menus', JSON.stringify(menus))
-      //   window.localStorage.setItem('user', JSON.stringify({
-      //     name: data.userName,
-      //     id: data.userId
-      //   }))
-      // })
       return api.public.login(usermsg).then((data) => {
         let token = data.token
         let menus = data['permissionList'] || []

@@ -14,9 +14,12 @@ module.exports = {
     config.plugin('define').tap(args => {
       return [
         {
+          ...args[0],
           TITLE: JSON.stringify(process.env.TITLE),
+          MOCK: JSON.stringify(process.env.MOCK),
           PREV: JSON.stringify(process.env.PREV),
-          SERVER_URI: JSON.stringify(process.env.SERVER_URI)
+          SERVER_URI: JSON.stringify(process.env.SERVER_URI),
+          VERSION: JSON.stringify(process.env.VERSION),
         }
       ];
     });

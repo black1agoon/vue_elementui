@@ -1,5 +1,6 @@
+/* global PREV */
 import {request} from '../common'
-let prev = process.env.PREV
+let prev = PREV
 export default {
   clientGroup: {
     add(info) {

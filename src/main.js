@@ -9,9 +9,8 @@ import '@/assets/js/rewrite'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/scss/font-awesome.scss'
-require('./mock/index.js')
+import './mock/index.js'
 Vue.config.productionTip = false
-
 Vue.use(ElementUI)
 if (window.localStorage) {
 // 如果需要多次使用到的话，放入vuex(缓存中)，之后调用速度会加快，

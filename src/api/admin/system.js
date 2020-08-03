@@ -1,6 +1,7 @@
+/* global PREV */
+
 import {request} from '../common'
-require('dotenv-safe').config();
-let prev = process.env.PREV
+let prev = PREV
 export default {
   public: {
     login(user) {
