@@ -17,7 +17,7 @@ export const request = (method, url, params, data = null) => {
     params = null
   }
   return axios({method, url, params, data}).then((res) => {
-    console.log(res)
+    // console.log(res)
     if (res.status === 200) {
       if (res.data && res.data.code === '00') {
         return res.data.data

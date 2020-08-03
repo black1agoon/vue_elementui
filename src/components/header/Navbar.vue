@@ -45,6 +45,7 @@
 </template>
 
 <script>
+  /* global VERSION */
   // import api from '@/api'
   import axios from 'axios'
 
@@ -52,7 +53,7 @@
     name: 'Navbar',
     data () {
       return {
-        version: process.env.VERSION,
+        version: VERSION,
         fullscreen: false,
         fullLoading: false,
         togglemenu: false,
