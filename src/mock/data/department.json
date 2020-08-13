@@ -1,0 +1,97 @@
+{
+  "code":"00",
+  "data":[
+    {
+      "childDepartmentDtoList":[
+        {
+          "childDepartmentDtoList":[],
+          "code":"",
+          "createTime":"2018-12-29 13:23:07",
+          "createUser":"徐毅强",
+          "delFlag":0,
+          "hotkey":"",
+          "id":"01eed9cad0e74294b976feb727003251",
+          "memo":"产品",
+          "name":"产品部",
+          "pid":"1",
+          "seq":1,
+          "updateUser":"",
+          "version":1
+        },
+        {
+          "childDepartmentDtoList":[],
+          "code":"",
+          "createTime":"2019-07-22 15:58:20",
+          "createUser":"ZJHN",
+          "delFlag":0,
+          "hotkey":"",
+          "id":"354996e84e214ca3a669cd29f0e12569",
+          "memo":"",
+          "name":"人力资源",
+          "pid":"1",
+          "seq":5,
+          "updateUser":"",
+          "version":1
+        },
+        {
+          "childDepartmentDtoList":[],
+          "code":"",
+          "createTime":"2018-12-29 13:24:32",
+          "createUser":"徐毅强",
+          "delFlag":0,
+          "hotkey":"",
+          "id":"a2fb58404f3f4c0ba4999cb2e6d89d39",
+          "memo":"",
+          "name":"生产部门",
+          "pid":"1",
+          "seq":4,
+          "updateUser":"",
+          "version":1
+        },
+        {
+          "childDepartmentDtoList":[],
+          "code":"",
+          "createTime":"2019-07-22 15:58:09",
+          "createUser":"ZJHN",
+          "delFlag":0,
+          "hotkey":"",
+          "id":"f78ca65c5b3e4092b7af5225ee4f8b0f",
+          "memo":"",
+          "name":"财务部",
+          "pid":"1",
+          "seq":10,
+          "updateUser":"",
+          "version":1
+        },
+        {
+          "childDepartmentDtoList":[],
+          "code":"",
+          "createTime":"2019-01-21 12:53:01",
+          "createUser":"",
+          "delFlag":0,
+          "hotkey":"",
+          "id":"f97604360b6148b291a50c3be10a5ace",
+          "memo":"",
+          "name":"研发部",
+          "pid":"1",
+          "seq":3,
+          "updateUser":"",
+          "version":1
+        }
+      ],
+      "code":"",
+      "createTime":"2018-12-29 00:00:00",
+      "createUser":"",
+      "delFlag":0,
+      "hotkey":"",
+      "id":"1",
+      "memo":"",
+      "name":"根部门",
+      "pid":"0",
+      "seq":0,
+      "updateUser":"",
+      "version":1
+    }
+  ],
+  "msg":"success"
+}

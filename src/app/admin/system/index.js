@@ -7,6 +7,7 @@ import ChangeLogController from './ChangeLogController'
 import ParamsController from './ParamsController'
 import SerialNumberController from './SerialNumberController'
 import ChangePassword from './ChangePassword'
+import MockController from './MockController'
 export default {
   MenuController,
   DictionaryController,
@@ -16,5 +17,6 @@ export default {
   ChangeLogController,
   ParamsController,
   SerialNumberController,
-  ChangePassword
+  ChangePassword,
+  MockController
 }

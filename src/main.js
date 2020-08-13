@@ -9,7 +9,8 @@ import '@/assets/js/rewrite'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/scss/font-awesome.scss'
-// import './mock/index.js'
+import '@/mock'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 if (window.localStorage) {

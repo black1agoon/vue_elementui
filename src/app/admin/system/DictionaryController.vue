@@ -283,7 +283,7 @@
           },
           btnSubAdd: () => {
             if (this.formdata.id) {
-              this.subformdata = JSON.parse(JSON.stringify(INFO))
+              this.subformdata = {...INFO}
               this.subformdata.pid = this.formdata.id
               this.$refs.subwindow.open()
             } else {
@@ -306,7 +306,6 @@
                   type: 'success'
                 })
                 this.getValueData(this.valueQuery)
-              }).catch(() => {
               })
             })
           }

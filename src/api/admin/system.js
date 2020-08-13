@@ -109,8 +109,8 @@ export default {
     }
   },
   department: {
-    getTree(query) {
-      return request('get', prev + '/admin/department/tree', query)
+    getTree() {
+      return request('get', prev + '/admin/department/tree')
     },
     getDepartment(id) {
       return request('get', prev + '/admin/department/get', {id})
@@ -223,15 +223,18 @@ export default {
       return request('post', prev + '/admin/serialNumber/paged', query)
     }
   },
-  home: {
-    load() {
-      return request('post', prev + '/admin/index/load')
+  mock: {
+    paged(query) {
+      return request('post', prev + '/mock/paged', query)
     },
-    electric() {
-      return request('post', prev + '/admin/index/electric')
+    addUser(info) {
+      return request('post', prev + '/mock/adduser', info)
     },
-    pileInfo() {
-      return request('post', prev + '/admin/index/pileInfo')
+    updateUser(info) {
+      return request('post', prev + '/mock/updateuser', info)
+    },
+    deleteUser(id) {
+      return request('get', prev + '/mock/deleteuser', {id})
     }
   }
 }

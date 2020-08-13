@@ -267,3 +267,47 @@ export const MENU = {
     ]
   }
 }
+
+export const MOCK = {
+  regions: {
+    north: {},
+    middle: {
+      center: {
+        style: {
+          flex: 1
+        }
+      }
+    }
+  },
+  formdata: {
+    name: null,
+    education: null,
+    phone: null,
+    profession: null,
+    graduationschool: null,
+    email: null,
+  },
+  forminfo: [
+    {
+      name: '姓名',
+      value: 'name'
+    }, {
+      name: '学历',
+      value: 'education'
+    }, {
+      name: '手机',
+      value: 'phone'
+    }, {
+      name: '职业',
+      value: 'profession'
+    }, {
+      name: '毕业学校',
+      value: 'graduationschool'
+    }, {
+      name: '邮箱',
+      value: 'email'
+    }
+  ],
+  rules: {},
+  formOptions: {}
+}
