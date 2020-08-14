@@ -97,7 +97,9 @@
             this.$refs.window.open()
             break
           case 'btnEdit':
-            this.$refs.window.open(data)
+            api.mock.get(data.id).then(resp => {
+              this.$refs.window.open(resp)
+            })
             break
           case 'btnDelete':
             this.$confirm(`是否删除:${data.name}？`, '提示', {

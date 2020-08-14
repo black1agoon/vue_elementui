@@ -1,92 +1,129 @@
 import Mock from 'mockjs'
+const Random = Mock.Random
+import { urlParse, treeExpand } from '@/assets/js/utils'
 
 let departmentData = require('../data/department.json')
-
-const Random = Mock.Random
 // 设置全局延时，没有延时的话，有时候会检测不到数据变化
-Mock.setup({
-  timeout: '300-600'
-})
 
-// 获取用户信息列表
 function getTreeData() {
   // 若 localStorage 没有数据，则将 Mock 的数据存入
   if (!localStorage.getItem('depData')) {
     localStorage.setItem('depData',JSON.stringify(departmentData.data))
   }
-  return departmentData
+  return {
+    data: JSON.parse(localStorage.getItem('depData')),
+    code: '00',
+    message: 'success'
+  }
 }
 
 function getInfo(options) {
   var depData = JSON.parse(localStorage.getItem('depData'))
-  for( let index in userlist) {
-    if (userlist[index].id === options.body) {
-      var user = userlist[index]
-      return user
-    }
+  var params = urlParse(options.url)
+  var deplist = treeExpand(depData, 'childDepartmentDtoList')
+  return {
+    code: '00',
+    data: deplist.find(dep => dep.id === params.id),
+    message: 'success'
   }
 }
 
 // 删除用户信息
 function deleteInfo(options) {
-  // 先从 localStorage 中拉取数据
-  var userlist = JSON.parse(localStorage.getItem('userlist'))
-  // 根据传递的 id 删除 用户
-  for( let index in userlist ) {
-    if (userlist[index].id === options.body) {
-      userlist.splice(index,1)
-      localStorage.setItem('userlist', JSON.stringify(userlist))
-    }
+  var depData = JSON.parse(localStorage.getItem('depData'))
+  var params = urlParse(options.url)
+  var expand = treedata => {
+    treedata.forEach((tdata, index) => {
+      if (tdata.id === params.id) {
+        treedata.splice(index, 1)
+        return
+      }
+      tdata.childDepartmentDtoList && expand(tdata.childDepartmentDtoList)
+    })
   }
+  expand(depData)
+  localStorage.setItem('depData', JSON.stringify(depData))
   return {
-    data: '用户删除成功'
+    data: '',
+    code: '00',
+    message: 'success'
   }
 }
 
 // 添加用户信息
 function addInfo(options) {
-  // 先从 localStorage 中拉取数据
-  var userlist = JSON.parse(localStorage.getItem('userlist'))
-  // 获取传入用户信息对象，是一个字符串，需要转化为对象
-  var user = JSON.parse(options.body)
+  var depData = JSON.parse(localStorage.getItem('depData'))
+  var dep = JSON.parse(options.body)
   // 使用 mock 随机生成一个 id
-  user.id = Random.id()
-  // 将 user 插入到 userlist 中
-  userlist.unshift(user)
-  // 重新将 userlist 存入 localStorage 中
-  localStorage.setItem('userlist', JSON.stringify(userlist))
+  dep.id = Random.id()
+  dep.childDepartmentDtoList = []
+
+  var expand = treedata => {
+    treedata.forEach(tdata => {
+      if (tdata.id === dep.pid) {
+        tdata.childDepartmentDtoList.push(dep)
+        return
+      }
+      tdata.childDepartmentDtoList && expand(tdata.childDepartmentDtoList)
+    })
+  }
+  expand(depData)
+  localStorage.setItem('depData', JSON.stringify(depData))
   return {
-    data: {
-      message: '用户添加成功'
-    },
-    code: '00'
+    data: '',
+    code: '00',
+    message: 'success'
   }
 }
 
 // 更新用户信息
 function updateInfo(options) {
-  // 先从 localStorage 中拉取数据
-  var userlist = JSON.parse(localStorage.getItem('userlist'))
-  var user = JSON.parse(options.body)
-  // 遍历 userlist 根据传入对象的 id 更新用户信息
-  for ( let index in userlist ) {
-
-    if ( userlist[index].id === user.id ) {
-      userlist[index] = user
-    }
+  var depData = JSON.parse(localStorage.getItem('depData'))
+  var dep = JSON.parse(options.body)
+  var expand = treedata => {
+    treedata.forEach(tdata => {
+      if (tdata.id === dep.id) {
+        Object.keys(tdata).forEach(key => {
+          tdata[key] = dep[key]
+        })
+        return
+      }
+      tdata.childDepartmentDtoList && expand(tdata.childDepartmentDtoList)
+    })
   }
-  localStorage.setItem('userlist', JSON.stringify(userlist))
+  expand(depData)
+  localStorage.setItem('depData', JSON.stringify(depData))
   return {
-    data: {
-      message: '用户编辑成功'
-    },
-    code: '00'
+    data: '',
+    code: '00',
+    message: 'success'
+  }
+}
+
+function getTreeNoOwn(options) {
+  var depData = JSON.parse(localStorage.getItem('depData'))
+  var dep = JSON.parse(options.body)
+  var expand = treedata => {
+    treedata.forEach((tdata, index) => {
+      if (tdata.id === dep.id) {
+        treedata.splice(index, 1)
+        return
+      }
+      tdata.childDepartmentDtoList && expand(tdata.childDepartmentDtoList)
+    })
+  }
+  expand(depData)
+  return {
+    data: depData,
+    code: '00',
+    message: 'success'
   }
 }
 
 Mock.mock('/service/admin/department/tree', getTreeData)
+Mock.mock(new RegExp('/service/admin/department/get'), getInfo)
 
-Mock.mock('/service/mock/getuser', 'post', getInfo)
-Mock.mock('/service/mock/deleteuser', 'get', deleteInfo)
-Mock.mock('/service/mock/adduser', 'post', addInfo)
-Mock.mock('/service/mock/updateuser', 'post', updateInfo)
+Mock.mock('/service/admin/department/add', 'post', addInfo)
+Mock.mock('/service/admin/department/update', 'post', updateInfo)
+Mock.mock(new RegExp('/service/admin/department/del'), 'get', deleteInfo)
+Mock.mock('/service/admin/department/treeNoOwn', 'post', getTreeNoOwn)

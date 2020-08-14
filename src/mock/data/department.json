@@ -4,7 +4,54 @@
     {
       "childDepartmentDtoList":[
         {
-          "childDepartmentDtoList":[],
+          "childDepartmentDtoList":[
+            {
+              "childDepartmentDtoList":[
+                {
+                  "childDepartmentDtoList":[],
+                  "code":"",
+                  "createTime":"2020-08-14 13:49:27",
+                  "createUser":"徐徐",
+                  "delFlag":0,
+                  "hotkey":"",
+                  "id":"346651539743440896",
+                  "memo":"",
+                  "name":"我是最新的哦",
+                  "pid":"346644042949328896",
+                  "seq":1,
+                  "updateUser":"",
+                  "version":1
+                }
+              ],
+              "code":"",
+              "createTime":"2020-08-14 13:19:40",
+              "createUser":"徐徐",
+              "delFlag":0,
+              "hotkey":"",
+              "id":"346644042949328896",
+              "memo":"",
+              "name":"新产品2",
+              "pid":"01eed9cad0e74294b976feb727003251",
+              "seq":2,
+              "updateUser":"",
+              "version":1
+            },
+            {
+              "childDepartmentDtoList":[],
+              "code":"",
+              "createTime":"2020-08-14 13:19:27",
+              "createUser":"徐徐",
+              "delFlag":0,
+              "hotkey":"",
+              "id":"346643988859584512",
+              "memo":"",
+              "name":"新产品1",
+              "pid":"01eed9cad0e74294b976feb727003251",
+              "seq":1,
+              "updateUser":"",
+              "version":1
+            }
+          ],
           "code":"",
           "createTime":"2018-12-29 13:23:07",
           "createUser":"徐毅强",

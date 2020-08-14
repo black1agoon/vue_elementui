@@ -235,6 +235,9 @@ export default {
     },
     deleteUser(id) {
       return request('get', prev + '/mock/deleteuser', {id})
+    },
+    get(id) {
+      return request('get', prev + '/mock/getuser', {id})
     }
   }
 }

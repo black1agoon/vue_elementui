@@ -143,7 +143,6 @@
     methods: {
       getData() {
         api.department.getTree().then((data) => {
-          console.log(data)
           this.treeOptions.data = helper.getTreeData(data, 'childDepartmentDtoList', 'name')
           this.formOptions.pid = helper.getTreeData(data, 'childDepartmentDtoList', 'name')
         })

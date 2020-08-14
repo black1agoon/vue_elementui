@@ -1,4 +1,5 @@
 import Mock from 'mockjs'
+import { urlParse } from '@/assets/js/utils'
 
 const Random = Mock.Random
 // 设置全局延时，没有延时的话，有时候会检测不到数据变化
@@ -43,30 +44,34 @@ function getList(options) {
 
 // 获取单个用户信息
 function getUser(options) {
-  // 先从 localStorage 中拉取数据
   var userlist = JSON.parse(localStorage.getItem('userlist'))
-  // 遍历数组，返回id 与传来 id 相当的一个对象
+  var params = urlParse(options.url)
   for( let index in userlist) {
-    if (userlist[index].id === options.body) {
+    if (userlist[index].id === params.id) {
       var user = userlist[index]
-      return user
+      return {
+        data: user,
+        code: '00',
+        message: 'success'
+      }
     }
   }
 }
 
 // 删除用户信息
 function deleteUser(options) {
-  // 先从 localStorage 中拉取数据
   var userlist = JSON.parse(localStorage.getItem('userlist'))
-  // 根据传递的 id 删除 用户
+  var params = urlParse(options.url)
   for( let index in userlist ) {
-    if (userlist[index].id === options.body) {
+    if (userlist[index].id === params.id) {
       userlist.splice(index,1)
       localStorage.setItem('userlist', JSON.stringify(userlist))
     }
   }
   return {
-    data: '用户删除成功'
+    data: '',
+    code: '00',
+    message: 'success'
   }
 }
 
@@ -97,7 +102,6 @@ function updateUser(options) {
   var user = JSON.parse(options.body)
   // 遍历 userlist 根据传入对象的 id 更新用户信息
   for ( let index in userlist ) {
-
     if ( userlist[index].id === user.id ) {
       userlist[index] = user
     }
@@ -113,8 +117,8 @@ function updateUser(options) {
 
 // 用户模块
 Mock.mock('/service/mock/paged', 'post', getList)
-Mock.mock('/service/mock/getuser', 'post', getUser)
-Mock.mock('/service/mock/deleteuser', 'get', deleteUser)
+Mock.mock(/\/service\/mock\/getuser/, 'get', getUser)
+Mock.mock(/\/service\/mock\/deleteuser/, 'get', deleteUser)
 Mock.mock('/service/mock/adduser', 'post', addUser)
 Mock.mock('/service/mock/updateuser', 'post', updateUser)
 // 最后将 Mock 导出

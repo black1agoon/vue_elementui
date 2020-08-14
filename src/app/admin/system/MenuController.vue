@@ -223,7 +223,6 @@
           },
           btnCopy: () => {
             api.permission.get(this.copyRowId).then(data => {
-              console.log(data)
               let copy = {...data}
               delete copy['id']
               this.$refs.window.open(copy)
