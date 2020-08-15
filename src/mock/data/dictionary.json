@@ -1,46 +1,44 @@
 {
-  "paged": {
-    "code": "00",
-    "data": {
-      "current": 1,
-      "orders": [],
-      "pages": 1,
-      "records": [
-        {
-          "code": "0002",
-          "hotkey": "",
-          "id": "8ad526a1eef646dc89de294bdabcdb17",
-          "memo": "我的定义1",
-          "name": "我的定义1",
-          "purpose": 0,
-          "seq": 99,
-          "version": 1
-        },
-        {
-          "code": "0001",
-          "hotkey": "",
-          "id": "588c14bcd87840abbca3163b8843a856",
-          "memo": "sex1",
-          "name": "性别",
-          "purpose": 0,
-          "seq": 10,
-          "version": 4
-        },
-        {
-          "code": "0003",
-          "hotkey": "",
-          "id": "1f91bb2158534c3c988af5cc9f0b7ee2",
-          "memo": "我的定义2",
-          "name": "我的定义2",
-          "purpose": 0,
-          "seq": 99,
-          "version": 1
-        }
-      ],
-      "searchCount": true,
-      "size": 10,
-      "total": 3
-    },
-    "msg": "success"
-  }
+	"code":"00",
+	"data":{
+		"current":1,
+		"orders":[],
+		"pages":1,
+		"records":[
+			{
+				"code":"0002",
+				"hotkey":"",
+				"id":"8ad526a1eef646dc89de294bdabcdb17",
+				"memo":"我的定义1",
+				"name":"我的定义1",
+				"purpose":0,
+				"seq":99,
+				"version":1
+			},
+			{
+				"code":"0001",
+				"hotkey":"",
+				"id":"588c14bcd87840abbca3163b8843a856",
+				"memo":"sex1",
+				"name":"性别",
+				"purpose":0,
+				"seq":10,
+				"version":4
+			},
+			{
+				"code":"0003",
+				"hotkey":"",
+				"id":"1f91bb2158534c3c988af5cc9f0b7ee2",
+				"memo":"我的定义2",
+				"name":"我的定义2",
+				"purpose":0,
+				"seq":99,
+				"version":1
+			}
+		],
+		"searchCount":true,
+		"size":10,
+		"total":3
+	},
+	"msg":"success"
 }

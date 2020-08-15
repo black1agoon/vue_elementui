@@ -186,43 +186,6 @@ export default {
       return request('post', prev + '/admin/userRelRole/disassociationUsersForRole', query)
     }
   },
-  params: {
-    add(info) {
-      return request('post', prev + '/admin/parameters/add', info)
-    },
-    update(info) {
-      return request('post', prev + '/admin/parameters/update', info)
-    },
-    delete(id) {
-      return request('get', prev + '/admin/parameters/del', {id})
-    },
-    get(id) {
-      return request('get', prev + '/admin/parameters/get', {id})
-    },
-    getAll() {
-      return request('get', prev + '/admin/parameters/get')
-    },
-    paged(query) {
-      return request('post', prev + '/admin/parameters/paged', query)
-    }
-  },
-  serialNumber: {
-    add(info) {
-      return request('post', prev + '/admin/serialNumber/add', info)
-    },
-    update(info) {
-      return request('post', prev + '/admin/serialNumber/update', info)
-    },
-    delete(id) {
-      return request('get', prev + '/admin/serialNumber/del', {id})
-    },
-    get(id) {
-      return request('get', prev + '/admin/serialNumber/get', {id})
-    },
-    paged(query) {
-      return request('post', prev + '/admin/serialNumber/paged', query)
-    }
-  },
   mock: {
     paged(query) {
       return request('post', prev + '/mock/paged', query)

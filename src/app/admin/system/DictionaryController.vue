@@ -172,8 +172,8 @@
         sub_buttons: [],
         REGIONS,
         FORMDATA,
-        formdata: JSON.parse(JSON.stringify(INFO)),
-        subformdata: JSON.parse(JSON.stringify(SUBINFO)),
+        formdata: {...INFO},
+        subformdata: {...SUBINFO},
         tableButtons: ['btnEdit', 'btnDelete'],
         sub_tableButtons: ['btnSubEdit', 'btnSubDelete'],
         formOptions: {
@@ -209,8 +209,8 @@
           ],
           rowClick: (row, event, column) => {
             this.valueQuery.attrCode = row.code
-            this.getValueData(this.valueQuery)
-            this.formdata = JSON.parse(JSON.stringify(row))
+            this.getValueData()
+            this.formdata = {...row}
           },
           rowDblclick: (row, event) => {
             this.$refs.window.open()
@@ -231,7 +231,7 @@
             {label: '备注', prop: 'memo', minWidth: 400}
           ],
           rowClick: (row, event, column) => {
-            this.subformdata = JSON.parse(JSON.stringify(row))
+            this.subformdata = {...row}
           },
           rowDblclick: (row, event) => {
             this.$refs.subwindow.open()
@@ -239,44 +239,44 @@
           reload: (name, val) => {
             this.valueQuery.page = name === 'page' ? val : this.valueQuery.page
             this.valueQuery.pageSize = name === 'pageSize' ? val : this.valueQuery.pageSize
-            this.getValueData(this.valueQuery)
+            this.getValueData()
             this.subformdata = {...SUBINFO}
           }
         }
       }
     },
     methods: {
-      getData(query) {
-        api.dictionary.getPaged(query).then(data => {
+      getData() {
+        api.dictionary.getPaged(this.query).then(data => {
           this.tableOptions.data = data.records
           this.tableOptions.total = data.total
         })
       },
-      getValueData(query) {
-        api.dictionary.getValuePaged(query).then(data => {
+      getValueData() {
+        api.dictionary.getValuePaged(this.valueQuery).then(data => {
           this.tableOptions2.data = data.records
           this.tableOptions2.total = data.total
         })
       },
-      onBtnClick(btnKey) {
+      onBtnClick(btnKey, row) {
         let btnHandlers = {
           btnAdd: () => {
-            this.formdata = JSON.parse(JSON.stringify(INFO))
+            this.formdata = { ...INFO }
             this.$refs.window.open()
           },
           btnEdit: () => {
             this.$refs.window.open()
           },
           btnDelete: () => {
-            this.$confirm(`是否删除:${this.formdata.name}？`, '提示', {
+            this.$confirm(`是否删除:${row.name}？`, '提示', {
               iconClass: 'fa fa-question-circle'
             }).then(() => {
-              api.dictionary.deleteAttrCode(this.formdata.id).then(() => {
+              api.dictionary.deleteAttrCode(row.id).then(() => {
                 this.$message({
                   message: '删除成功!',
                   type: 'success'
                 })
-                this.getData(this.query)
+                this.getData()
               }).catch(() => {
               })
             })
@@ -297,15 +297,15 @@
             this.$refs.subwindow.open()
           },
           btnSubDelete: () => {
-            this.$confirm(`是否删除:${this.subformdata.name}？`, '提示', {
+            this.$confirm(`是否删除:${row.name}？`, '提示', {
               iconClass: 'fa fa-question-circle'
             }).then(() => {
-              api.dictionary.deleteAttrValue(this.subformdata.id).then(() => {
+              api.dictionary.deleteAttrValue(row.id).then(() => {
                 this.$message({
                   message: '删除成功!',
                   type: 'success'
                 })
-                this.getValueData(this.valueQuery)
+                this.getValueData()
               })
             })
           }
@@ -332,7 +332,7 @@
                   message: '新增成功!',
                   type: 'success'
                 })
-                this.getData(this.query)
+                this.getData()
                 this.$refs.window.cancel()
               })
             } else {
@@ -341,7 +341,7 @@
                   message: '编辑成功!',
                   type: 'success'
                 })
-                this.getData(this.query)
+                this.getData()
                 this.$refs.window.cancel()
               })
             }
@@ -363,7 +363,7 @@
                   message: '新增成功!',
                   type: 'success'
                 })
-                this.getValueData(this.valueQuery)
+                this.getValueData()
                 this.$refs.subwindow.cancel()
               })
             } else {
@@ -372,7 +372,7 @@
                   message: '编辑成功!',
                   type: 'success'
                 })
-                this.getValueData(this.valueQuery)
+                this.getValueData()
                 this.$refs.subwindow.cancel()
               })
             }
@@ -387,7 +387,7 @@
       }
     },
     mounted() {
-      this.getData(this.query)
+      this.getData()
       this.getButtons()
     }
   }

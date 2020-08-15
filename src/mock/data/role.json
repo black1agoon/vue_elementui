@@ -1,0 +1,95 @@
+{
+  "code": "00",
+  "data": {
+    "current": 1,
+    "orders": [],
+    "pages": 1,
+    "records": [
+      {
+        "createTime": "2020-08-03 14:37:13",
+        "createUser": "ZJHN",
+        "description": "徐徐的个人",
+        "id": "0ef31a668585431b9a1ac2bddf198998",
+        "role": "个人用户",
+        "templateId": "",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:50:52",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "3c5a72dc7c4c425db45b3eff1d9f7093",
+        "role": "员工",
+        "templateId": "1",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2018-12-07 00:00:00",
+        "createUser": "孙家耀",
+        "description": "admin",
+        "id": "50ac0634ba5e461899e15971bcbc5413",
+        "role": "超级管理员",
+        "templateId": "",
+        "templateName": "",
+        "updateTime": "2020-04-08 16:15:10",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:51:36",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "8d2bdbac699f40bc8a59a40c0f5ba3c6",
+        "role": "总经理",
+        "templateId": "",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:52:34",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "92d655fe234742ecabd268360999560a",
+        "role": "HR",
+        "templateId": "",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:51:15",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "ccd298496ee2452090bf1133831907a9",
+        "role": "部门主管",
+        "templateId": "1",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:52:10",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "e97192cba7ab4911b26c9dce8988135c",
+        "role": "财务",
+        "templateId": "",
+        "templateName": "",
+        "updateUser": ""
+      },
+      {
+        "createTime": "2019-07-22 15:51:28",
+        "createUser": "ZJHN",
+        "description": "",
+        "id": "fdfdc283161346b3a21d8fb3010f8969",
+        "role": "总监",
+        "templateId": "",
+        "templateName": "",
+        "updateUser": ""
+      }
+    ],
+    "searchCount": true,
+    "size": 10,
+    "total": 8
+  },
+  "msg": "success"
+}

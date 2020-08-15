@@ -377,8 +377,8 @@
           nodeClick: (data, node, vnode) => {
             this.query.page = 1
             this.query.depId = data.id
-            this.query.departmentName = data.label
-            this.getData(this.query)
+            // this.query.departmentName = data.label
+            this.getData()
           }
         },
         tableOptions: {
@@ -409,7 +409,7 @@
           reload: (name, val) => {
             this.query.page = name === 'page' ? val : this.query.page
             this.query.pageSize = name === 'pageSize' ? val : this.query.pageSize
-            this.getData(this.query)
+            this.getData()
           },
           handleSelectionChange: val => {
             this.tableRowsSelect = val.map(v => v.id)
@@ -589,8 +589,8 @@
           this.role.checkedList = []
           this.role.checkedCopyList = []
         } else if (key === 'btnEdit') {
-          this.formdata = JSON.parse(JSON.stringify(data.user))
-          this.formdataCopy = JSON.parse(JSON.stringify(data.user))
+          this.formdata = {...data.user}
+          this.formdataCopy = {...data.user}
           this.role.checkedList = JSON.parse(JSON.stringify(data.roleList.map(r => r.id)))
           this.role.checkedCopyList = JSON.parse(JSON.stringify(data.roleList.map(r => r.id)))
         }

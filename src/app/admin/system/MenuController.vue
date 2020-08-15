@@ -100,18 +100,9 @@
         copyRowId: null,
         treeOptions: {
           data: [],
-          // defaultExpandAll: true,
           defaultExpandedKeys: [],
           expandOnClickNode: false,
           nodeClick: (data, node, vnode) => {
-            // if (this.editflag) {
-            //   utils.confirm('是否放弃编辑?', this.cancelForm)
-            // } else {
-            //   this.treeOptions.defaultExpandedKeys = [data.id]
-            //   api.permission.getPermission(data.id).then(data => {
-            //     this.formdata = JSON.parse(JSON.stringify(data))
-            //   })
-            // }
             this.treeClickNode = data
             this.copyRowId = data.id
             this.getTableData()

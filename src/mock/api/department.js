@@ -3,7 +3,6 @@ const Random = Mock.Random
 import { urlParse, treeExpand } from '@/assets/js/utils'
 
 let departmentData = require('../data/department.json')
-// 设置全局延时，没有延时的话，有时候会检测不到数据变化
 
 function getTreeData() {
   // 若 localStorage 没有数据，则将 Mock 的数据存入
@@ -28,7 +27,7 @@ function getInfo(options) {
   }
 }
 
-// 删除用户信息
+// 删除
 function deleteInfo(options) {
   var depData = JSON.parse(localStorage.getItem('depData'))
   var params = urlParse(options.url)
@@ -50,7 +49,7 @@ function deleteInfo(options) {
   }
 }
 
-// 添加用户信息
+// 添加
 function addInfo(options) {
   var depData = JSON.parse(localStorage.getItem('depData'))
   var dep = JSON.parse(options.body)
@@ -76,7 +75,7 @@ function addInfo(options) {
   }
 }
 
-// 更新用户信息
+// 更新
 function updateInfo(options) {
   var depData = JSON.parse(localStorage.getItem('depData'))
   var dep = JSON.parse(options.body)
